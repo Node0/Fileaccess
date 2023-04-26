@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="fileaccess",  # Change this to your desired package name
-    version="0.2.0",
+    name="fileaccess",
+    version="0.2.15",
     packages=find_packages(),
     install_requires=[
         "sh"
@@ -10,9 +10,9 @@ setup(
     author="Joe Hacobian",
     author_email="joehacobian@gmail.com",
     description="A package for easier file access",
-    long_description=open("../README.md").read(),
+    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/node0/Fileaccess",  # Replace with your package's GitHub URL
+    url="https://github.com/node0/Fileaccess",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
