@@ -3,10 +3,11 @@
 "auto-version-increment.info.notificationBar": true,
 "auto-version-increment.version.file": [
   {
-    "path": "/Users/joehacobian/my-repos/Fileaccess/setup.py",
+    "path": "/FileAccess/setup.py",
     "prefix": "version=\"",
     "sufix": "\",",
-    "primary": true
+    "primary": true,
+    "useWorkspacePath": true
   }
 ]
 }
