@@ -1,7 +1,9 @@
 # Fileaccess Utility Class
 
 ## Introduction
-`Fileaccess` is a utility class for safely dealing with files. This class can be used to read, write, or append to a file, as well as create a file or directory.
+`Fileaccess` is a utility class for safely dealing with files. This class can be used to read, write, or append to a file, as well as create a file or directory. A nice benefit of using it is the automatic file handle management it provides.  
+
+The main productivity benefit of using this class is the createFile() method which creates file and directory paths automatically for a given file or directory asset, as well as allowing the writing of file contents together in a single method call. If you find yourself writing out a directory tree or a lot of files, this can save you frustration.  
 
 ## Usage
 ### Reading a File

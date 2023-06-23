@@ -3,7 +3,7 @@
 "auto-version-increment.info.notificationBar": true,
 "auto-version-increment.version.file": [
   {
-    "path": "/FileAccess/setup.py",
+    "path": "setup.py",
     "prefix": "version=\"",
     "sufix": "\",",
     "primary": true,

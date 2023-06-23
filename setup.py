@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name="fileaccess",
-    version="0.2.12",
+    version="0.2.13",
     packages=find_packages(),
     install_requires=[
         "sh"
     ],
     author="Joe Hacobian",
     author_email="joehacobian@gmail.com",
-    description="A package for easier file access",
+    description="A package for easier file access, automatically closes opened file handles, & provides for simple file/directory creation.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/node0/Fileaccess",
