@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="fileaccess",
-    version="0.2.13",
+    version="0.2.15",
     packages=find_packages(),
     install_requires=[
         "sh"
@@ -14,7 +14,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/node0/Fileaccess",
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",

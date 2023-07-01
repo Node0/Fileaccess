@@ -53,7 +53,7 @@ class Fileaccess():
         if mode in ['r', 'w', 'a']:
             self.mode = mode
         else:
-            raise Exception(f"Passed mode must be one of r = read, w = write, a = append, instead found: {mode}")
+            raise Exception(f"Passed mode must be commonly one of r = read, w = write, a = append, or one of [r,w,x,a,b,t,+]. Instead found: {mode}")
 
     def __enter__(self):
         self.file = open(self.file_name, self.mode)
@@ -96,5 +96,6 @@ class Fileaccess():
             sh.touch(fileAsset)
             sh.chmod(filePermissions, fileAsset)
             if os.path.exists(fileAsset) and fileContents is not None:
-                with open(fileAsset, "wt") as fileHandle:
+                writeMode = 'wb' if isinstance(fileContents, bytes) else 'wt'
+                with open(fileAsset, writeMode) as fileHandle:
                     fileHandle.write(fileContents)
