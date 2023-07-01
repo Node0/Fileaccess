@@ -44,6 +44,12 @@ In the above example, `assetType` can be either `"f"` to create a file or `"d"` 
   
 Note: You do NOT need to first create the directory path for a file if the directory path doesn't exist (all you need are access permissions for the user python is running as). The full directory path will automatically be create for you simply by you providing a full file path.
   
+Note 2: If you wish to exercise more granluar control over file and folder permissions at creation time there are two parameters you may use: `filePermissions` & `folderPermissions`  
+
+Below are the assumed default values if one or both of these paramters is not given specific other values:  
+`filePermissions="0644"`  
+`folderPermissions="0755"`  
+
 
 ## File Access Modes
 The `mode` parameter in the `Fileaccess` class specifies the file access mode. Here's a table of the available modes:
