@@ -78,9 +78,7 @@ class Fileaccess():
             directoryAsset = targetPath
 
         if isinstance(directoryAsset, str):
-            # sh.mkdir("-p", directoryAsset)
             os.makedirs(directoryAsset, exist_ok=True)
-            # sh.chmod(folderPermissions, directoryAsset)
             os.chmod(directoryAsset, int(folderPermissions, 8))
 
             if os.path.exists(directoryAsset):
