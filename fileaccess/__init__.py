@@ -1,6 +1,5 @@
 import os
 import traceback
-import sh
 
 
 # Fileaccess utility class
@@ -70,17 +69,19 @@ class Fileaccess():
         directoryAsset = None
 
         if assetType == "d" and targetPath is None:
-            print("You have chosen to create a directory WITHOUT providing a target path.\nPlease provide: createFileAndWriteContents(targetPath = '/path/of/desired/asset'")
+            print("You have chosen to create a directory WITHOUT providing a target path.\nPlease provide: createFile(targetPath = '/path/of/desired/asset'")
         elif assetType == "f" and targetPath is None:
-            print("You have chosen to create a file WITHOUT providing a target path.\nPlease provide: createFileAndWriteContents(targetPath = '/path/of/desired/asset'")
+            print("You have chosen to create a file WITHOUT providing a target path.\nPlease provide: createFile(targetPath = '/path/of/desired/asset'")
         elif assetType == "f" and targetPath is not None and isinstance(targetPath, str):
             fileAsset = targetPath
         elif assetType == "d" and targetPath is not None and isinstance(targetPath, str):
             directoryAsset = targetPath
 
         if isinstance(directoryAsset, str):
-            sh.mkdir("-p", directoryAsset)
-            sh.chmod(folderPermissions, directoryAsset)
+            # sh.mkdir("-p", directoryAsset)
+            os.makedirs(directoryAsset, exist_ok=True)
+            # sh.chmod(folderPermissions, directoryAsset)
+            os.chmod(directoryAsset, int(folderPermissions, 8))
 
             if os.path.exists(directoryAsset):
                 print(f"Created dir: {directoryAsset}, with 755 permissions")
@@ -89,13 +90,8 @@ class Fileaccess():
             return
 
         if isinstance(fileAsset, str):
-            targetPathArray = fileAsset.split("/")
-            targetPathArray.pop()
-            fileAssetContainingDir = "/".join(targetPathArray)
-            sh.mkdir("-p", fileAssetContainingDir)
-            sh.touch(fileAsset)
-            sh.chmod(filePermissions, fileAsset)
-            if os.path.exists(fileAsset) and fileContents is not None:
-                writeMode = 'wb' if isinstance(fileContents, bytes) else 'wt'
-                with open(fileAsset, writeMode) as fileHandle:
-                    fileHandle.write(fileContents)
+          os.makedirs(os.path.dirname(fileAsset), exist_ok=True)
+          with open(fileAsset, 'wb' if isinstance(fileContents, bytes) else 'wt') as fileHandle:
+            fileHandle.write(fileContents)
+          os.chmod(fileAsset, int(filePermissions, 8))
+          print(f"Created file: {fileAsset}, with {filePermissions} permissions")

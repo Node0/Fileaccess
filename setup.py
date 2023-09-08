@@ -2,10 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name="fileaccess",
-    version="0.2.17",
+    version="0.2.20",
     packages=find_packages(),
     install_requires=[
-        "sh"
     ],
     author="Joe Hacobian",
     author_email="joehacobian@gmail.com",
